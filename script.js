@@ -3,14 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
 
-    // Function to add a message to the chat interface
     function addMessage(text, sender) {
         const messageWrapper = document.createElement('div');
         messageWrapper.classList.add('message', sender);
 
         const avatar = document.createElement('div');
         avatar.classList.add('avatar');
-        avatar.textContent = sender === 'user' ? 'U' : 'A'; // U for User, A for Assistant
+        avatar.textContent = sender === 'user' ? 'U' : 'A';
 
         const textContent = document.createElement('div');
         textContent.classList.add('text-content');
@@ -28,10 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Function to show a temporary "thinking" message
     function showThinkingIndicator() {
         const existingIndicator = document.getElementById('thinking-indicator');
-        if (existingIndicator) return; // Don't add more than one
+        if (existingIndicator) return;
 
         const messageWrapper = document.createElement('div');
         messageWrapper.classList.add('message', 'assistant');
@@ -43,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const textContent = document.createElement('div');
         textContent.classList.add('text-content');
-        textContent.innerHTML = `<span class="thinking-dot"></span><span class="thinking-dot"></span><span class="thinking-dot"></span>`;
+        textContent.innerHTML = `<span class="thinking-dot">.</span><span class="thinking-dot">.</span><span class="thinking-dot">.</span>`;
         
         messageWrapper.appendChild(avatar);
         messageWrapper.appendChild(textContent);
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Function to remove the "thinking" message
     function removeThinkingIndicator() {
         const indicator = document.getElementById('thinking-indicator');
         if (indicator) {
@@ -59,10 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Function to get AI response from the backend
     async function getAiResponse(prompt) {
         showThinkingIndicator();
-        const apiUrl = '/api/chat'; // The API route on Vercel
+        const apiUrl = '/api/chat';
 
         try {
             const response = await fetch(apiUrl, {
@@ -84,11 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("API Error:", error);
             removeThinkingIndicator();
-            addMessage(`Error: ${error.message}. Please check the connection and try again.`, "assistant");
+            addMessage(`عذرًا، حدث خطأ: ${error.message}. يرجى المحاولة مرة أخرى.`, "assistant");
         }
     }
 
-    // Function to handle sending a message
     function handleSend() {
         const userText = userInput.value.trim();
         if (userText) {
@@ -99,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event Listeners
     sendBtn.addEventListener('click', handleSend);
     userInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
