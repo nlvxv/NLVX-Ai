@@ -1,7 +1,7 @@
-/* 1. استيراد الخطوط: 'Tajawal' للعربية و 'Inter' للإنجليزية (شبيه بخط Apple) */
+/* 1. Import Fonts: 'Inter' for English (Apple-like) and 'Tajawal' for Arabic */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap' );
 
-/* 2. تعريف لوحة الألوان والتصميم الأساسي */
+/* 2. Define Color Palette and Base Styles */
 :root {
     --bg-color: #0a0a0a;
     --primary-color: #1a1a1a;
@@ -19,10 +19,10 @@
     padding: 0;
 }
 
-/* 3. إعدادات الجسم الرئيسية مع الخطوط والخلفية */
+/* 3. Main Body Setup with Fonts and Background */
 body {
-    /* استخدام خط 'Tajawal' للعربية و 'Inter' كبديل للإنجليزية وخطوط النظام */
-    font-family: 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Use 'Inter' first for English, then 'Tajawal' for Arabic, then system fonts */
+    font-family: 'Inter', 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-primary);
     display: flex;
@@ -33,7 +33,7 @@ body {
     position: relative;
 }
 
-/* 4. الخلفية المتحركة (Aurora effect) */
+/* 4. Animated "Aurora" Background */
 .background-shapes {
     position: absolute;
     width: 100%;
@@ -63,7 +63,7 @@ body {
     to { transform: translate(100px, 50px) rotate(270deg) scale(1.2); }
 }
 
-/* 5. حاوية الدردشة الرئيسية بتأثير زجاجي */
+/* 5. Glassmorphism Chat Container */
 .chat-container {
     width: 95%;
     max-width: 750px;
@@ -79,7 +79,7 @@ body {
     overflow: hidden;
 }
 
-/* 6. تصميم الهيدر (العنوان العلوي) */
+/* 6. Header Design */
 .header {
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@ body {
     border-radius: 12px;
     display: grid;
     place-items: center;
-    margin-left: 15px; /* مسافة على اليسار لتناسب RTL */
+    margin-right: 15px; /* Space on the right for LTR */
     font-weight: 700;
     font-size: 1.4em;
 }
@@ -109,7 +109,7 @@ body {
     font-weight: 500;
 }
 
-/* 7. تصميم صندوق الرسائل */
+/* 7. Chat Box and Messages Styling */
 .chat-box {
     flex-grow: 1;
     padding: 10px 20px;
@@ -146,23 +146,20 @@ body {
 .message .text-content {
     padding: 12px 16px;
     border-radius: 18px;
-    line-height: 1.6; /* زيادة ارتفاع السطر لتحسين قراءة العربية */
+    line-height: 1.55;
     font-size: 0.95em;
-    text-align: right; /* محاذاة النص لليمين داخل الرسالة */
-}
-html[lang="en"] .message .text-content {
-    text-align: left; /* محاذاة النص لليسار فقط إذا كانت اللغة إنجليزية */
+    text-align: left; /* Default text alignment to the left */
 }
 
 .assistant { align-self: flex-start; }
 .assistant .avatar { background: #3a3a3c; }
 .assistant .text-content { background: #2c2c2e; border-top-left-radius: 5px; }
 
-.user { align-self: flex-end; flex-direction: row; } /* تم التعديل ليتناسب مع RTL */
+.user { align-self: flex-end; flex-direction: row-reverse; } /* Reversed for LTR */
 .user .avatar { background: var(--accent-color); }
 .user .text-content { background: var(--accent-color); color: white; border-top-right-radius: 5px; }
 
-/* 8. تصميم منطقة الإدخال */
+/* 8. Input Area Styling */
 .chat-input-container {
     display: flex;
     padding: 15px 20px;
@@ -178,14 +175,14 @@ html[lang="en"] .message .text-content {
     background-color: #2c2c2e;
     color: var(--text-primary);
     outline: none;
-    font-family: 'Tajawal', 'Inter', sans-serif; /* التأكد من استخدام الخط الصحيح هنا أيضًا */
+    font-family: 'Inter', 'Tajawal', sans-serif;
 }
 #user-input::placeholder { color: var(--text-secondary); }
 
 #send-btn {
     width: 44px;
     height: 44px;
-    margin-right: 12px; /* مسافة على اليمين لتناسب RTL */
+    margin-left: 12px; /* Space on the left for LTR */
     background: var(--accent-color);
     color: white;
     border: none;
@@ -199,7 +196,7 @@ html[lang="en"] .message .text-content {
 #send-btn:hover { transform: scale(1.1); }
 #send-btn:active { transform: scale(0.95); }
 
-/* 9. التصميم المتجاوب لجميع الأجهزة (Responsive Design) */
+/* 9. Responsive Design for All Devices */
 @media (max-width: 768px) {
     .chat-container {
         width: 100%;

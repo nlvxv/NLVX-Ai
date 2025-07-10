@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-<!-- ضبط اللغة للعربية والاتجاه من اليمين لليسار (RTL) -->
-<html lang="ar" dir="rtl">
+<!-- Set language to English (en) and direction to Left-to-Right (ltr) -->
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLVX Ai - مساعدك الذكي</title>
+    <title>NLVX Ai - Your AI Assistant</title>
     
-    <!-- استدعاء ملف التصميم -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- استدعاء مكتبة الأيقونات -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- الخلفية المتحركة -->
+    <!-- Animated Background -->
     <div class="background-shapes"></div>
 
-    <!-- حاوية الدردشة الرئيسية -->
+    <!-- Main Chat Container -->
     <div class="chat-container">
         <div class="header">
             <div class="logo">
-                <!-- يمكنك وضع حرف "N" للإنجليزية أو "ن" للعربية -->
-                <span class="logo-text">ن</span>
+                <span class="logo-text">N</span>
             </div>
             <div class="header-title">
                 <h1>NLVX Ai</h1>
-                <p>متصل الآن</p>
+                <p>Online</p>
             </div>
         </div>
         <div class="chat-box" id="chat-box">
-            <!-- الرسالة الترحيبية الأولى -->
+            <!-- Initial welcome message -->
             <div class="message assistant">
                 <div class="avatar">A</div>
-                <div class="text-content">مرحباً! أنا NLVX Ai. كيف يمكنني مساعدتك اليوم؟</div>
+                <div class="text-content">Hello! I am NLVX Ai. How can I assist you today?</div>
             </div>
         </div>
         <div class="chat-input-container">
-            <input type="text" id="user-input" placeholder="اسألني أي شيء...">
+            <input type="text" id="user-input" placeholder="Ask me anything...">
             <button id="send-btn">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
         </div>
     </div>
 
-    <!-- استدعاء ملف الجافاسكريبت -->
+    <!-- JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("API Error:", error);
             removeThinkingIndicator();
-            addMessage(`عذرًا، حدث خطأ: ${error.message}. يرجى المحاولة مرة أخرى.`, "assistant");
+            addMessage(`Sorry, an error occurred: ${error.message}. Please try again.`, "assistant");
         }
     }
 
